@@ -12,7 +12,7 @@ class Review(models.Model):
     
 
 
-class Register_user_data(models.Model):
+class Register(models.Model):
     name = models.CharField(max_length=100)
     password = models.TextField()
     return_password = models.TextField()

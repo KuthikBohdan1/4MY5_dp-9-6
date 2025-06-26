@@ -1,4 +1,4 @@
-from cofe_bar.models import Review, Register_user_data
+from cofe_bar.models import Review, Register
 from django.shortcuts import render, redirect
 
 from .forms import ArticlesForm
@@ -22,6 +22,7 @@ def Register(request):
     if request.method == 'POST':
         form = ArticlesForm(request.POST)
         if form.is_valid():
+            print("1")
             form.save()
             return redirect('reviews')
         else:
@@ -34,7 +35,7 @@ def Register(request):
     
     context = {
         "all_form" : form,
-        'error': error
+        'error': error,
     }
     return render(
         request,
