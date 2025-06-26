@@ -1,5 +1,5 @@
 from .models import Register, Review
-from django.forms import ModelForm, TextInput, Textarea, DateTimeInput
+from django.forms import ModelForm, TextInput, Textarea, DateTimeInput, DateInput
 
 class ArticlesForm(ModelForm):
 
@@ -20,7 +20,7 @@ class ArticlesForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'пароль 2',
             }),
-            'user_birth_date' : DateTimeInput(attrs={
+            'user_birth_date' : DateInput(attrs={
                 'class': 'form-control',
                 # 'type': 'datetime-local'
             })
@@ -45,9 +45,9 @@ class Add_reviewsForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'опис ',
             }),
-            'pub_date' : TextInput(attrs={
+            'pub_date' : DateTimeInput(attrs={
                 'class': 'form-control',
-                
+                'type': 'datetime-local'
             }),
 
 
