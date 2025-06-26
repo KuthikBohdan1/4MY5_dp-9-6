@@ -1,4 +1,4 @@
-from .models import Register
+from .models import Register, Review
 from django.forms import ModelForm, TextInput, Textarea, DateTimeInput
 
 class ArticlesForm(ModelForm):
@@ -26,4 +26,30 @@ class ArticlesForm(ModelForm):
             })
 
 
+        }
+
+class Add_reviewsForm(ModelForm):
+    class Meta:
+        model = Review
+        fields = ['title','content','author','pub_date']
+        widgets = {
+            'title' : TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'опис ',
+            }),
+            'content' : TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'контент',
+            }),
+            'author' : TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'опис ',
+            }),
+            'pub_date' : TextInput(attrs={
+                'class': 'form-control',
+                
+            }),
+
+
+        
         }

@@ -1,7 +1,7 @@
 from cofe_bar.models import Review, Register
 from django.shortcuts import render, redirect
 
-from .forms import ArticlesForm
+from .forms import ArticlesForm, Add_reviewsForm
 def Reviews(request):
 
     review = Review.objects.all()
@@ -40,5 +40,31 @@ def Register(request):
     return render(
         request,
         template_name="auth_system/register_user.html",
+        context=context,
+    )
+
+def Add_review(request):
+    error = ''
+    if request.method == 'POST':
+        form = Add_reviewsForm(request.POST)
+        if form.is_valid():
+            print("успішно додано коментар")
+            form.save()
+            return redirect('reviews')
+            
+        else:
+            error = 'Неправильно введіні данні'
+            print(error)
+
+
+    form = Add_reviewsForm()
+
+
+    context = {
+        "all_form": form
+    }
+    return render(
+        request,
+        template_name="auth_system/add_review.html",
         context=context,
     )

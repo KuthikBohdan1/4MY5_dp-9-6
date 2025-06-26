@@ -1,0 +1,21 @@
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <h3>додавання коментаря</h3>
+        {{ all_form.title }}<br>
+        {{ all_form.content }}<br>
+        {{ all_form.author }}<br>
+        {{ all_form.pub_date }}<br>
+        <span>{{ error }}</span>
+
+        <button class="btn btn-success" type="submit">зарейструватись</button>
+
+        {% comment %} <input type="text" placeholder="псевдонім" class="form-control_username"><br>
+        <input type="text" placeholder="пароль" class="form-control_password"><br>
+        <input type="text" placeholder="повторений пароль" class="form-control_return_password"><br>
+        <input type="date" placeholder="дата народження" class="form-control_date"><br> 
+        
+        <button class="btn btn-success" type="submit">зарейструватись</button> {% endcomment %}
+    </form>
+    
+{% endblock content %}
