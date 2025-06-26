@@ -1,6 +1,6 @@
-from .models import Register, Review
+from .models import Register, Review,Standart
 from django.forms import ModelForm, TextInput, Textarea, DateTimeInput, DateInput
-
+from django.contrib.auth.forms import  UserCreationForm
 class ArticlesForm(ModelForm):
 
     class Meta:
@@ -53,3 +53,9 @@ class Add_reviewsForm(ModelForm):
 
         
         }
+
+# class StandartForm(ModelForm):
+#     class Meta:
+#         model = Register
+#         fields = Standart
+#         fields = UserCreationForm.Meta.fields

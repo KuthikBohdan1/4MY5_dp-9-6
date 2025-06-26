@@ -17,3 +17,8 @@ class Register(models.Model):
     password = models.TextField()
     return_password = models.TextField()
     user_birth_date = models.DateField()
+
+
+
+class Standart(models.Model):
+    pass
