@@ -1,6 +1,7 @@
 from cofe_bar.models import Review, Register
 from django.shortcuts import render, redirect
 
+from django.contrib.auth.forms import UserCreationForm
 from .forms import ArticlesForm, Add_reviewsForm
 def Reviews(request):
 
@@ -68,3 +69,20 @@ def Add_review(request):
         template_name="auth_system/add_review.html",
         context=context,
     )
+
+
+
+
+
+def Standart_register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('reviews')  # або 'index', якщо є така сторінка
+    else:
+        form = UserCreationForm()
+    
+    return render(request, 'auth_system/standart_register.html', {'form': form})
+
+

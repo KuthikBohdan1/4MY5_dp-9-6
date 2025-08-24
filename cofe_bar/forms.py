@@ -55,7 +55,4 @@ class Add_reviewsForm(ModelForm):
         }
 
 # class StandartForm(ModelForm):
-#     class Meta:
-#         model = Register
-#         fields = Standart
-#         fields = UserCreationForm.Meta.fields
+#     form = UserCreationForm()
